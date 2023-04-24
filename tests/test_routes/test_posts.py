@@ -20,7 +20,7 @@ def test_create_post(client):
     assert response_data["title"] == post_data["title"]
     assert response_data["description"] == post_data["description"]
     assert response_data["date_posted"] == post_data["date_posted"]
-    
+
     # Assert that the password is not returned in the response
     assert "password" not in response_data
 
@@ -43,7 +43,7 @@ def test_get_post(client):
     assert response_data["title"] == post_data["title"]
     assert response_data["description"] == post_data["description"]
     assert response_data["date_posted"] == post_data["date_posted"]
-    
+
     # Assert that the password is not returned in the response
     assert "password" not in response_data
 
@@ -56,7 +56,7 @@ def test_get_post(client):
     # Assert the response JSON data
     response_data = response.json()
     assert response_data["title"] == post_data["title"]
-    
+
     # Assert that the password is not returned in the response
     assert "password" not in response_data
 

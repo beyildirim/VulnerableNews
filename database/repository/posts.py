@@ -21,7 +21,6 @@ def update_post_by_id(id: int, post: PostCreate, db: Session, owner_id: int):
     existing_post = db.query(Post).filter(Post.id == id)
     if not existing_post.first():
         return False
-    post.__dict__.update(owner_id=owner_id)
     existing_post.update(post.__dict__)
     db.commit()
     return True

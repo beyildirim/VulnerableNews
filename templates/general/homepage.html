@@ -1,0 +1,33 @@
+{% extends "shared/base.html" %}
+
+{% block title %}
+    <title>Vulnerable News - Latest News</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-4">
+        <h1 class="display-4">Latest News</h1>
+        <hr class="my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in posts %}
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ post.date_posted.strftime('%B %d, %Y') }}</h6>
+                            <p class="card-text">{{ post.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p>No news found.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
